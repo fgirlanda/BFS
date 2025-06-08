@@ -5,20 +5,26 @@ final int N = 50;
 final int dim = 25;
 final int minD = 100;
 final int maxD = 250;
+final int dimUI = 100;
+final int displayWidth = 1000;
+final int displayHeight = 1000 + dimUI;
 Grafo g = new Grafo();
+ArrayList<PVector> posizioni = new ArrayList<PVector>();
 
 Queue q = new Queue();
 
+void settings(){
+  size(displayWidth, displayHeight);
+}
+
 void setup(){
-  size(1000, 1000);
-  
+  background(255);
   // Generazione posizioni
-  ArrayList<PVector> posizioni = new ArrayList<PVector>();
   int count = 0;
   while(posizioni.size() <= N && count < 1000){
     boolean troppoVicino = false;
     float x = random(50, width - 50);
-    float y = random(50, height - 50);
+    float y = random(50, height - 50 - dimUI);
     PVector nP = new PVector(x, y);
     
     for(PVector esistente: posizioni){
@@ -56,6 +62,7 @@ void setup(){
         Lato l = new Lato(n1, n2);
         g.addLato(l);
         n1.addVicino(n2);
+        stroke(0);
         line(pos1.x, pos1.y, pos2.x, pos2.y);
         connessioni++;
       }
@@ -101,6 +108,12 @@ void bfs(){
 void keyReleased(){
   if (key == ' '){
      bfs();
+  }
+  if (key == 'a'){
+    g.vertici.clear();
+    g.lati.clear();
+    posizioni.clear();
+    setup();
   }
 }
 
