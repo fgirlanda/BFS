@@ -1,7 +1,10 @@
 // Autori: Girlanda Francesco e Marchetti Davide
 // Versione 1.0
 
-final int N = 50;
+import controlP5.*;
+
+int N = 25;
+int ultimaGenerazione = N;
 final int dim = 25;
 final int minD = 100;
 final int maxD = 250;
@@ -10,8 +13,10 @@ final int displayWidth = 1000;
 final int displayHeight = 1000 + dimUI;
 Grafo g = new Grafo();
 ArrayList<PVector> posizioni = new ArrayList<PVector>();
-
 Queue q = new Queue();
+
+ControlP5 cp5;
+Slider slider;
 
 void settings(){
   size(displayWidth, displayHeight);
@@ -19,9 +24,59 @@ void settings(){
 
 void setup(){
   background(255);
+  generaGrafo();
+  
+  cp5 = new ControlP5(this);
+  
+  slider = cp5.addSlider("N")
+                     .setPosition(50, 1020)
+                     .setSize(300, 10)
+                     .setRange(1, 49)           
+                     .setValue(25)
+                     .setNumberOfTickMarks(50)  
+                     .setSliderMode(Slider.FLEXIBLE)
+                     .showTickMarks(false)  
+                     .setDecimalPrecision(0);
+  
+  slider.getCaptionLabel().setVisible(false);
+  slider.getValueLabel().setVisible(false);
+}
+void draw(){
+  fill(255);           
+  noStroke();
+  rect(0, 1000, width, 100);
+  int nodi = N + 1;
+  fill(0);
+  textAlign(CENTER, CENTER);
+  text("Numero di nodi: " + nodi, 200, 1040);
+}
+
+void mouseReleased(){
+  if(N != ultimaGenerazione){
+    g.vertici.clear();
+    g.lati.clear();
+    posizioni.clear();
+    background(255);
+    generaGrafo();
+  }
+}
+
+void controlEvent(ControlEvent e) {
+  if (e.isFrom("N")) { 
+    int nodi = N + 1;
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("Numero di nodi: " + nodi, 200, 1040);
+  }
+}
+
+
+
+void generaGrafo(){
+  ultimaGenerazione = N;
   // Generazione posizioni
   int count = 0;
-  while(posizioni.size() <= N && count < 1000){
+  while(posizioni.size() <= N && count < 10000){
     boolean troppoVicino = false;
     float x = random(50, width - 50);
     float y = random(50, height - 50 - dimUI);
@@ -80,6 +135,7 @@ void setup(){
 }
 
 
+
 // Algoritmo BFS
 void bfs(){
   if(!q.isEmpty()){
@@ -113,7 +169,8 @@ void keyReleased(){
     g.vertici.clear();
     g.lati.clear();
     posizioni.clear();
-    setup();
+    background(255);
+    generaGrafo();
   }
 }
 
@@ -139,5 +196,3 @@ boolean intersecaNodo(Nodo a, Nodo b){
   }
   return false;
 }
-
-void draw(){}
