@@ -58,11 +58,12 @@ Premendo il bottone "ESEGUI BFS" l'algoritmo verrà eseguito automaticamente
 - Installare Processing ([download](https://processing.org/download))
 - Aprire uno qualsiasi dei file .pde
 - Avviare il file Main
+
 ## Obiettivi futuri
 
 - Possibilità di selezionare il nodo sorgente
-- Possibilità di scegliere tra visualizzazione automatica/a step
 - Implementazione algoritmo di visita in profondità (DFS)
+
 ## Autori
 
 - [@dvdmarchetti](https://www.github.com/dvdmarchetti)
