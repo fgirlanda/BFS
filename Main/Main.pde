@@ -56,6 +56,7 @@ void mouseReleased(){
     g.vertici.clear();
     g.lati.clear();
     posizioni.clear();
+    q.clear();
     background(255);
     generaGrafo();
   }

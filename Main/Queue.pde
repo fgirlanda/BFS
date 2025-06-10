@@ -20,4 +20,8 @@ class Queue{
   boolean isEmpty(){
     return coda.size() == 0;
   }
+  
+  void clear(){
+    this.coda.clear();
+  }
 }

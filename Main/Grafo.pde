@@ -25,4 +25,9 @@ class Grafo{
     }
     return null;
   }
+  
+  void clear(){
+    this.vertici.clear();
+    this.lati.clear();
+  }
 }
