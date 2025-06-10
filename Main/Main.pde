@@ -28,18 +28,26 @@ void setup(){
   
   cp5 = new ControlP5(this);
   
+  // Slider
   slider = cp5.addSlider("N")
                      .setPosition(50, 1020)
                      .setSize(300, 10)
-                     .setRange(1, 49)           
+                     .setRange(1, 49)     
+                     .setDecimalPrecision(0)
                      .setValue(25)
                      .setNumberOfTickMarks(50)  
                      .setSliderMode(Slider.FLEXIBLE)
-                     .showTickMarks(false)  
-                     .setDecimalPrecision(0);
+                     .showTickMarks(false);
   
   slider.getCaptionLabel().setVisible(false);
   slider.getValueLabel().setVisible(false);
+  
+  // Bottone esecuzione algoritmo automatica
+  Button auto = cp5.addButton("automatic")
+                   .setPosition(400, 1010)
+                   .setSize(110, 30)
+                   .setLabel("Esegui BFS");
+  auto.getCaptionLabel().setFont(createFont("Verdana", 8));
 }
 void draw(){
   fill(255);           
