@@ -37,6 +37,11 @@ Nota: nella generazione casuale del grafo, a volte risultano nodi singoli o sott
 Durante la generazione del grafo, per evitare sovrapposizioni tra lati e nodi, è stato implementato un controllo apposito.
 
 Ad ogni step il nodo corrente viene colorato di verde, mentre i nodi presenti nella sua lista di adiacenza vengono colorati di blu e i lati associati in rosso. Al termine della visita si ottiene, in rosso, un albero di copertura per ogni sottografo presente.
+
+### Slider
+
+È possibile utilizzare lo slider per modificare il numero massimo di nodi da generare, il programma genera un nuovo grafo ogni volta che lo slider viene modificato
+
 ## Uso
 
 - Installare Processing ([download](https://processing.org/download))
@@ -44,7 +49,6 @@ Ad ogni step il nodo corrente viene colorato di verde, mentre i nodi presenti ne
 - Avviare il file Main
 ## Obiettivi futuri
 
-- Slider per la modifica del numero di nodi
 - Possibilità di selezionare il nodo sorgente
 - Possibilità di scegliere tra visualizzazione automatica/a step
 - Implementazione algoritmo di visita in profondità (DFS)
