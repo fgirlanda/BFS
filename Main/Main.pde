@@ -3,6 +3,7 @@
 
 import controlP5.*;
 
+boolean esecuzioneAutomatica = false;
 int N = 25;
 int ultimaGenerazione = N;
 final int dim = 25;
@@ -57,6 +58,13 @@ void draw(){
   fill(0);
   textAlign(CENTER, CENTER);
   text("Numero di nodi: " + nodi, 200, 1040);
+  if(esecuzioneAutomatica){
+    bfs();
+    if(g.coperto() == null){
+      esecuzioneAutomatica = false;
+      frameRate(120);
+    }
+  }
 }
 
 void mouseReleased(){
@@ -76,6 +84,11 @@ void controlEvent(ControlEvent e) {
     textAlign(CENTER, CENTER);
     text("Numero di nodi: " + nodi, 200, 1040);
   }
+}
+
+void automatic(){
+  frameRate(10);
+  esecuzioneAutomatica = true;
 }
 
 
