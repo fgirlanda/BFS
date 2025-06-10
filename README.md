@@ -42,16 +42,28 @@ Ad ogni step il nodo corrente viene colorato di verde, mentre i nodi presenti ne
 
 È possibile utilizzare lo slider per modificare il numero massimo di nodi da generare, il programma genera un nuovo grafo ogni volta che lo slider viene modificato
 
+### Esecuzione automatica
+
+Premendo il bottone "ESEGUI BFS" l'algoritmo verrà eseguito automaticamente
+
+
+## Bug noti
+
+- All'apertura del programma, facendo click su qualsiasi parte della finestra, il grafo viene rigenerato anche senza modificare lo slider (una sola volta)
+
+- Grafica: se viene generato un grafo connesso, l'esecuzione automatica si ferma lasciando gli ultimi nodi in blu, anzichè verde
+
 ## Uso
 
 - Installare Processing ([download](https://processing.org/download))
 - Aprire uno qualsiasi dei file .pde
 - Avviare il file Main
+
 ## Obiettivi futuri
 
 - Possibilità di selezionare il nodo sorgente
-- Possibilità di scegliere tra visualizzazione automatica/a step
 - Implementazione algoritmo di visita in profondità (DFS)
+
 ## Autori
 
 - [@dvdmarchetti](https://www.github.com/dvdmarchetti)
