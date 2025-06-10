@@ -1,5 +1,5 @@
 // Autori: Girlanda Francesco e Marchetti Davide
-// Versione 1.0
+// Versione 1.1
 
 import controlP5.*;
 
@@ -53,8 +53,7 @@ void draw(){
 
 void mouseReleased(){
   if(N != ultimaGenerazione){
-    g.vertici.clear();
-    g.lati.clear();
+    g.clear();
     posizioni.clear();
     q.clear();
     background(255);
