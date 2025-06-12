@@ -49,7 +49,7 @@ Premendo il bottone "ESEGUI BFS" l'algoritmo verrà eseguito automaticamente
 
 ## Bug noti
 
-- All'apertura del programma, facendo click su qualsiasi parte della finestra, il grafo viene rigenerato anche senza modificare lo slider (una sola volta)
+- [RISOLTO] All'apertura del programma, facendo click su qualsiasi parte della finestra, il grafo viene rigenerato anche senza modificare lo slider (una sola volta)
 
 - Grafica: se viene generato un grafo connesso, l'esecuzione automatica si ferma lasciando gli ultimi nodi in blu, anzichè verde
 
