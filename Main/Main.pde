@@ -33,9 +33,9 @@ void setup(){
   slider = cp5.addSlider("N")
                      .setPosition(50, 1020)
                      .setSize(300, 10)
-                     .setRange(1, 49)     
+                     .setRange(1, 50)     
                      .setDecimalPrecision(0)
-                     .setValue(25)
+                     .setValue(26)
                      .setNumberOfTickMarks(50)  
                      .setSliderMode(Slider.FLEXIBLE)
                      .showTickMarks(false);
@@ -49,15 +49,17 @@ void setup(){
                    .setSize(110, 30)
                    .setLabel("Esegui BFS");
   auto.getCaptionLabel().setFont(createFont("Verdana", 8));
+  
+  System.out.println("N >" + N + "\nultimaGenerazione >" + ultimaGenerazione);
 }
+
 void draw(){
   fill(255);           
   noStroke();
   rect(0, 1000, width, 100);
-  int nodi = N + 1;
   fill(0);
   textAlign(CENTER, CENTER);
-  text("Numero di nodi: " + nodi, 200, 1040);
+  text("Numero di nodi: " + N, 200, 1040);
   if(esecuzioneAutomatica){
     bfs();
     if(g.coperto() == null){
@@ -68,7 +70,7 @@ void draw(){
 }
 
 void mouseReleased(){
-  if(N != ultimaGenerazione){
+  if(ultimaGenerazione != N){
     g.clear();
     posizioni.clear();
     q.clear();
@@ -79,10 +81,9 @@ void mouseReleased(){
 
 void controlEvent(ControlEvent e) {
   if (e.isFrom("N")) { 
-    int nodi = N + 1;
     fill(0);
     textAlign(CENTER, CENTER);
-    text("Numero di nodi: " + nodi, 200, 1040);
+    text("Numero di nodi: " + N, 200, 1040);
   }
 }
 
